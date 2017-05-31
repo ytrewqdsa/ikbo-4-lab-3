@@ -12,7 +12,7 @@ struct node* searchel = NULL;
 struct node* parent = NULL;
 struct node *tmp = NULL;
 
-int count(struct node *n) /*кол-во узлов*/
+int count(struct node *n) /*ГЄГ®Г«-ГўГ® ГіГ§Г«Г®Гў*/
 {
     int c = 1;
 
@@ -26,7 +26,7 @@ int count(struct node *n) /*кол-во узлов*/
      }
 }
 
-int countLeaves(struct node* node) /*кол-во листьев*/
+int countLeaves(struct node* node) /*ГЄГ®Г«-ГўГ® Г«ГЁГ±ГІГјГҐГў*/
 {
 
 
@@ -38,7 +38,7 @@ int countLeaves(struct node* node) /*кол-во листьев*/
     }
     return countLeaves(node->left) + countLeaves(node->right);
 }
-int isBST(struct node* root) /*является ли деревом поиска*/
+int isBST(struct node* root) /*ГїГўГ«ГїГҐГІГ±Гї Г«ГЁ Г¤ГҐГ°ГҐГўГ®Г¬ ГЇГ®ГЁГ±ГЄГ */
 {
     static struct node *prev = NULL;
 
@@ -79,7 +79,7 @@ void insert(int value, struct node** node) {
 		*node = temp;
 		return;
 	}
-	else printf("\nКорень уже есть\n");
+	else printf("\nГЉГ®Г°ГҐГ­Гј ГіГ¦ГҐ ГҐГ±ГІГј\n");
 }
 
 
@@ -98,7 +98,7 @@ void search(struct node** tree, int value) {
 }
 
 
-void search1 (struct node** tree, int value) /*поиск елемента без потомка*/
+void search1 (struct node** tree, int value) /*ГЇГ®ГЁГ±ГЄ ГҐГ«ГҐГ¬ГҐГ­ГІГ  ГЎГҐГ§ ГЇГ®ГІГ®Г¬ГЄГ */
 {
 	if(!(*tree)) {
 		/*tree doesn't exist or we've reached end of tree */
@@ -136,7 +136,7 @@ void search1 (struct node** tree, int value) /*поиск елемента без потомка*/
     }
 }
 
-/*поиск родителя елемента, не имеющего ровесника*/
+/*ГЇГ®ГЁГ±ГЄ Г°Г®Г¤ГЁГІГҐГ«Гї ГҐГ«ГҐГ¬ГҐГ­ГІГ , Г­ГҐ ГЁГ¬ГҐГѕГ№ГҐГЈГ® Г°Г®ГўГҐГ±Г­ГЁГЄГ */
 void search2 (struct node** tree, int value) {
 	if(!(*tree))
 		return;
@@ -256,15 +256,15 @@ int commands (int a){
     int N, M;
         if (a == 1)
         {
-            printf("Значение корня:\n");
+            printf("Г‡Г­Г Г·ГҐГ­ГЁГҐ ГЄГ®Г°Г­Гї:\n");
             scanf("%d", &N);
             insert(N, &tree);
         }
         else if (a == 2)
         {
-            printf("Значение N:\n");
+            printf("Г‡Г­Г Г·ГҐГ­ГЁГҐ N:\n");
             scanf("%d", &N);
-            printf("Значение родителя M:\n");
+            printf("Г‡Г­Г Г·ГҐГ­ГЁГҐ Г°Г®Г¤ГЁГІГҐГ«Гї M:\n");
             scanf("%d", &M);
             searchel = NULL;
             search1 (&tree, M);
@@ -274,18 +274,18 @@ int commands (int a){
                 insert(N, &(searchel->left));
             else if (searchel->right == NULL)
                 insert(N, &(searchel->right));
-            else printf("\n%d уже имеет 2 узла", searchel->value);
+            else printf("\n%d ГіГ¦ГҐ ГЁГ¬ГҐГҐГІ 2 ГіГ§Г«Г ", searchel->value);
             }
             else
-            printf("Значение не найдено\n");
+            printf("Г‡Г­Г Г·ГҐГ­ГЁГҐ Г­ГҐ Г­Г Г©Г¤ГҐГ­Г®\n");
 
         }
 
         else if (a == 3)
             {
-            printf("Значение N:\n");
+            printf("Г‡Г­Г Г·ГҐГ­ГЁГҐ N:\n");
             scanf("%d", &N);
-            printf("Сосед M:\n");
+            printf("Г‘Г®Г±ГҐГ¤ M:\n");
             scanf("%d", &M);
             searchel = NULL;
             parent = NULL;
@@ -297,17 +297,17 @@ int commands (int a){
                 insert(N, &(parent->left));
             if (!parent->right)
             insert(N, &(parent->right));
-            else printf("\n%d уже имеет 2 узла", parent->value);
+            else printf("\n%d ГіГ¦ГҐ ГЁГ¬ГҐГҐГІ 2 ГіГ§Г«Г ", parent->value);
             }
             else
-            printf ("Не найден или уже имеет 2 узла");
+            printf ("ГЌГҐ Г­Г Г©Г¤ГҐГ­ ГЁГ«ГЁ ГіГ¦ГҐ ГЁГ¬ГҐГҐГІ 2 ГіГ§Г«Г ");
             }
         else if (a == 4)
             print_t(tree);
         else if (a == 5)
             printf("\n...\n");
         else
-            printf("Ошибка\n");
+            printf("ГЋГёГЁГЎГЄГ \n");
     return 0;
 }
 
@@ -317,7 +317,7 @@ void CreateTree()
     int a;
     while(a != 5)
     {
-    printf("\n1.Добавить корень\n2.Добавть узел N от родителя M\n3.Добавить узел N соседний с M.\n4.Печать\n5.Выход\n");
+    printf("\n1.Г„Г®ГЎГ ГўГЁГІГј ГЄГ®Г°ГҐГ­Гј\n2.Г„Г®ГЎГ ГўГІГј ГіГ§ГҐГ« N Г®ГІ Г°Г®Г¤ГЁГІГҐГ«Гї M\n3.Г„Г®ГЎГ ГўГЁГІГј ГіГ§ГҐГ« N Г±Г®Г±ГҐГ¤Г­ГЁГ© Г± M.\n4.ГЏГҐГ·Г ГІГј\n5.Г‚Г»ГµГ®Г¤\n");
     scanf("%d", &a);
     commands(a);
     }
@@ -327,7 +327,7 @@ void CreateTree()
 FILE* openfile(FILE* file){
     char fname [30];
     while (file == NULL){
-        printf(" Ошибка открытия фаила\n Введите пить к файлу:");
+        printf(" ГЋГёГЁГЎГЄГ  Г®ГІГЄГ°Г»ГІГЁГї ГґГ ГЁГ«Г \n Г‚ГўГҐГ¤ГЁГІГҐ ГЇГЁГІГј ГЄ ГґГ Г©Г«Гі:");
         scanf("%s", fname);
         file=fopen(fname, "rb");
     }
@@ -340,7 +340,7 @@ int main() {
 	int command;
 	while (command != 7)
     {
-    printf("\n1.Создать или изменить дерево\n2.Считать из файла\n3.Показать дерево \n4.Сохранить в output.txt \n5.Информация о дереве\n6.Поиск элемента\n7.Выход\n");
+    printf("\n1.Г‘Г®Г§Г¤Г ГІГј ГЁГ«ГЁ ГЁГ§Г¬ГҐГ­ГЁГІГј Г¤ГҐГ°ГҐГўГ®\n2.Г‘Г·ГЁГІГ ГІГј ГЁГ§ ГґГ Г©Г«Г \n3.ГЏГ®ГЄГ Г§Г ГІГј Г¤ГҐГ°ГҐГўГ® \n4.Г‘Г®ГµГ°Г Г­ГЁГІГј Гў output.txt \n5.Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® Г¤ГҐГ°ГҐГўГҐ\n6.ГЏГ®ГЁГ±ГЄ ГЅГ«ГҐГ¬ГҐГ­ГІГ \n7.Г‚Г»ГµГ®Г¤\n");
 	scanf("%d", &command);
 	if (command == 1)
             CreateTree();
@@ -366,8 +366,8 @@ int main() {
         }
         else if (command == 5)
         {
-            printf("Узлов:%d\n", count(tree));
-            printf("Листьев:%d\n", countLeaves(tree));
+            printf("Г“Г§Г«Г®Гў:%d\n", count(tree));
+            printf("Г‹ГЁГ±ГІГјГҐГў:%d\n", countLeaves(tree));
             if (isBST(tree))
                 printf("It BST\n");
             else
@@ -376,14 +376,14 @@ int main() {
         }
         else if (command == 6){
             int s;
-            printf("\nКлюч поиска:");
+            printf("\nГЉГ«ГѕГ· ГЇГ®ГЁГ±ГЄГ :");
             scanf("%d", &s);
             searchel = NULL;
             search(&tree, s);
             if(searchel)
-                printf("Значение %d найденоn", s);
+                printf("Г‡Г­Г Г·ГҐГ­ГЁГҐ %d Г­Г Г©Г¤ГҐГ­Г®n", s);
             else
-                printf("Значение %d не найдено\n", s);
+                printf("Г‡Г­Г Г·ГҐГ­ГЁГҐ %d Г­ГҐ Г­Г Г©Г¤ГҐГ­Г®\n", s);
         }
     }
 
