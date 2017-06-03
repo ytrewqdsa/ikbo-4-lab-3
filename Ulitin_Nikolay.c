@@ -181,16 +181,17 @@ int main(void){
             printf("15.load filename\n");
             printf("16.help\n");
             printf("17.analysis\n");
-            printf("18.exit\n");
+            printf("18.checkheap\n");
+	    printf("19.exit\n");
         break;
         case 17:
             Analysis(Tree,1);
         break;
-        case 18:
+        case 19:
             FreeTree(Tree);
             return 0;
         break;
-        case 19:
+        case 18:
             if (CheckHeap(Tree))
                 printf("Given binary tree is a Heap\n");
             else
@@ -211,7 +212,7 @@ int StringCmp(int *TempInt1,int *TempInt2,char filename[]){
     if (strcmp(Command,"show")==0)
         return 13;
     if (strcmp(Command,"exit")==0)
-        return 18;
+        return 19;
     if (strcmp(Command,"save")==0){
         scanf("%s",filename);
         return 14;
@@ -221,7 +222,7 @@ int StringCmp(int *TempInt1,int *TempInt2,char filename[]){
         return 15;
     }
     if (strcmp(Command,"checkheap")==0)
-        return 19;
+        return 18;
     if (strcmp(Command,"analysis")==0)
         return 17;
     if (strcmp(Command,"add")==0)
