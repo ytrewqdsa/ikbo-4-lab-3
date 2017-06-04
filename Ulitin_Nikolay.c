@@ -396,7 +396,7 @@ void Analysis(TypeTree *Tree,int flag){
             leaf++;
     }
     if (flag==1)
-        printf("Leaf==%d\nNode==%d\nAll node==%d\nHeap==%d\n",leaf,node,node-leaf,heap);
+        printf("Leaf==%d\nNode==%d\nAll node==%d\n",leaf,node,node-leaf);
 }
 
 void BackPtr(TypeTree *Tree,TypeTree *ptr){
