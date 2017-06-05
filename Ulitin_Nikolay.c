@@ -335,6 +335,8 @@ TypeTree* TreeSearch(TypeTree* Tree,int SearchNum,int TypeSearch,int flag){
         }
         TempTree=TreeSearch(Tree->Left,SearchNum,TypeSearch,0);
         TempTree=TreeSearch(Tree->Right,SearchNum,TypeSearch,0);
+        if (TempTree==NULL)
+            TempTree=NULL;
     }
     if (flag==1)
         return SearchTree;
@@ -376,18 +378,13 @@ void LoadFile(TypeTree **Tree,FILE **openFile){
 }
 
 void Analysis(TypeTree *Tree,int flag){
-    static int leaf=0,node=0,heap=1;
+    static int leaf=0,node=0;
     if (flag==1){
         leaf=0;
         node=0;
-        heap=1;
     }
     if (Tree!=NULL){
         node++;
-        if ((Tree->Left!=NULL)&&(Tree->Left->Key>Tree->Key))
-            heap=0;
-        if ((Tree->Right!=NULL)&&(Tree->Right->Key>Tree->Key))
-            heap=0;
         if (Tree->Left!=NULL)
             Analysis(Tree->Left,0);
         if (Tree->Right!=NULL)
@@ -396,7 +393,7 @@ void Analysis(TypeTree *Tree,int flag){
             leaf++;
     }
     if (flag==1)
-        printf("Leaf==%d\nNode==%d\nAll node==%d\n",leaf,node,node-leaf);
+        printf("Leaf==%d\nAll node==%d\nNode==%d\n",leaf,node,node-leaf);
 }
 
 void BackPtr(TypeTree *Tree,TypeTree *ptr){
@@ -446,3 +443,4 @@ int CountNodes(TypeTree *Tree){
         return 0;
     return (1+CountNodes(Tree->Left)+CountNodes(Tree->Right));
 }
+
