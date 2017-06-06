@@ -12,7 +12,7 @@ struct node* searchel = NULL;
 struct node* parent = NULL;
 struct node *tmp = NULL;
 
-int count(struct node *n) /*кол-во узлов*/
+int count(struct node *n) /*ГЄГ®Г«-ГўГ® ГіГ§Г«Г®Гў*/
 {
     int c = 1;
 
@@ -26,7 +26,7 @@ int count(struct node *n) /*кол-во узлов*/
      }
 }
 
-int countLeaves(struct node* node) /*кол-во листьев*/
+int countLeaves(struct node* node) /*ГЄГ®Г«-ГўГ® Г«ГЁГ±ГІГјГҐГў*/
 {
 
 
@@ -38,7 +38,7 @@ int countLeaves(struct node* node) /*кол-во листьев*/
     }
     return countLeaves(node->left) + countLeaves(node->right);
 }
-int isBST(struct node* root) /*является ли деревом поиска*/
+int isBST(struct node* root) /*ГїГўГ«ГїГҐГІГ±Гї Г«ГЁ Г¤ГҐГ°ГҐГўГ®Г¬ ГЇГ®ГЁГ±ГЄГ */
 {
     static struct node *prev = NULL;
 
@@ -98,7 +98,7 @@ void search(struct node** tree, int value) {
 }
 
 
-void search1 (struct node** tree, int value) /*поиск елемента без потомка*/
+void search1 (struct node** tree, int value) /*ГЇГ®ГЁГ±ГЄ ГҐГ«ГҐГ¬ГҐГ­ГІГ  ГЎГҐГ§ ГЇГ®ГІГ®Г¬ГЄГ */
 {
 	if(!(*tree)) {
 		/*tree doesn't exist or we've reached end of tree */
@@ -136,7 +136,7 @@ void search1 (struct node** tree, int value) /*поиск елемента без потомка*/
     }
 }
 
-/*поиск родителя елемента, не имеющего ровесника*/
+/*ГЇГ®ГЁГ±ГЄ Г°Г®Г¤ГЁГІГҐГ«Гї ГҐГ«ГҐГ¬ГҐГ­ГІГ , Г­ГҐ ГЁГ¬ГҐГѕГ№ГҐГЈГ® Г°Г®ГўГҐГ±Г­ГЁГЄГ */
 void search2 (struct node** tree, int value) {
 	if(!(*tree))
 		return;
@@ -294,7 +294,7 @@ int commands (int a){
 
 void CreateTree()
 {
-    int a;
+    int a=0;
     while(a != 4)
     {
     printf("\n1.add root\n2.add node N parent M\n3.print\n4.exit\n");
@@ -316,7 +316,7 @@ FILE* openfile(FILE* file){
 
 
 int main() {
-	int command;
+	int command=0;
 	while (command != 7)
     {
     printf("\n1.Create or edit tree\n2.Print tree \n3.Info\n4.Search element\n5.Read from file\n6.Save in output.txt \n7.Exit\n");
